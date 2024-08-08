@@ -1,0 +1,34 @@
+Aplicativo: Cadastro App
+ 
+1) Requisitos (o que ela vai fazer?)
+ 
+- Criar Pessoa
+- Alterar Pessoa
+- Listar Pessoas
+- Criar Telefone
+- Excluir Pessoa e Telefone
+- Alterar Telefone
+- Listar Pessoas com Telefones
+- Listar Pessoa (uma única) com Telefones
+ 
+2) Dados (quais dados ela terá?)
+ 
+Pessoa (idPessoa,nome,endereço (cidade, estado, etc.))
+Telefone (idTelefone,idPessoa,DDI,DDD,telefone)
+ 
+3) Rotas (Direcionamentos) Qual método/verbo HTTP? Qual endereço? Quais parâmetros?
+
+OO                                     -----                    PHP Estruturado               -----
+PESSOA
+
+- Criar Pessoa   (POST)   /apiCadastros/CadastrosPessoas   (param: nome, endereço)        /appCadastros/CadastroPessoas/create.php
+- Alterar Pessoa (PUT)    /apiCadastros/CadastrosPessoas   (param: id, nome,endereco)     /appCadastros/CadastroPessoas/update.php						       (param: titulo/corpo)
+- Listar Pessoas (GET)    /apiCadastros/CadastrosPessoas   (param: vazio)                 /apiCadastros/CadastroPessoas/listar.php	
+
+TELEFONE
+							       
+- Criar Telefone (POST)              /apiCadastros/CadastrosTelefones  (param: idPessoa, ddi, ddd, telefone)    /apiCadastros/CadastrosTelefones/create.php
+- Excluir Pessoa/Telefone (DELETE)   /apiCadastros/CadastrosTelefones  (param: id)                              /apiCadastros/CadastrosTelefones/delete.php
+- Alterar Telefone (PUT)             /apiCadastros/CadastrosTelefones  (param: id, ddi, ddd, telefone)          /apiCadastros/CadastrosTelefones/update.php
+- Listar Pessoas com Telefones (GET) /apiCadastros/CadastrosTelefones  (param: vazio)                           /apiCadastros/CadastrosTelefones/getall.php
+- Listar Pessoa com Telefones (GET)  /apiCadastros/CadastrosTelefones  (param: vazio)                           /apiCadastros/CadastrosTelefones/get.php
