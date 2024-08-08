@@ -4,19 +4,25 @@ require('./../config.php');
 $metodo = strtoupper($_SERVER['REQUEST_METHOD']);
 
 if ($metodo === 'POST') {
-    $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
-    $endereco = filter_input(INPUT_POST, 'endereco', FILTER_SANITIZE_STRING);
+    $nome = filter_input(INPUT_POST, 'nome');
+    $endereco = filter_input(INPUT_POST, 'endereco');
 
     if ($nome && $endereco) {
         $sql = $pdo->prepare("INSERT INTO pessoa (nome, endereco) VALUES (:nome, :endereco)");
         $sql->bindValue(':nome', $nome);
         $sql->bindValue(':endereco', $endereco);
         $sql->execute();
+
+        $array['result'] = [
+            'id' => $idPessoa,
+            'nome' => $nome,
+            'endereco' => $endereco,
+        ];
     } else {
         $array['error'] = 'Erro: Valores nulos ou inválidos!';
     }
 } else {
-    $array['error'] = 'Erro: Ação inválida - Método permitido apenas POST';
+    $array['error'] = 'Erro: Método inválido - Apenas POST é permitido.';
 }
 
-require('./../return.php');
+require('../return.php');
