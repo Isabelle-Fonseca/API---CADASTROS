@@ -1,0 +1,14 @@
+CREATE TABLE pessoa (
+    idPessoa INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    endereco VARCHAR(400) NOT NULL
+);
+
+CREATE TABLE telefone (
+    idTelefone INT AUTO_INCREMENT PRIMARY KEY,
+    idPessoa INT,
+    ddi VARCHAR(3),
+    ddd VARCHAR(2),
+    telefone VARCHAR(9),
+    FOREIGN KEY (idPessoa) REFERENCES pessoa(idPessoa)
+);
