@@ -1,5 +1,5 @@
 <?php
-require('./header.php');
+require('./../config.php');
 
 $metodo = strtoupper($_SERVER['REQUEST_METHOD']);
 
