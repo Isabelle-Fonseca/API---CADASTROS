@@ -16,4 +16,4 @@ if ($metodo === 'GET') {
     $array['error'] = 'Erro: Método inválido - Apenas GET é permitido.';
 }
 
-require('../return.php');
+require('./../return.php');

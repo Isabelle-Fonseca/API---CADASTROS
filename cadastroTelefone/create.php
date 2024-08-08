@@ -32,4 +32,4 @@ if ($metodo === 'POST') {
     $array['error'] = 'Erro: Método inválido - Apenas POST é permitido.';
 }
 
-require('../return.php');
+require('./../return.php');
