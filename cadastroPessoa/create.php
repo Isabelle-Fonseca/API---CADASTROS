@@ -14,7 +14,6 @@ if ($metodo === 'POST') {
         $sql->execute();
 
         $array['result'] = [
-            'id' => $idPessoa,
             'nome' => $nome,
             'endereco' => $endereco,
         ];
